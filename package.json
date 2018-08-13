@@ -1,0 +1,27 @@
+{
+  "name": "react-cnode",
+  "version": "1.0.0",
+  "description": "cnode.js community with react\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001bcnode community with react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config build/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kovlento/react-cnode.git"
+  },
+  "author": "kovlento",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kovlento/react-cnode/issues"
+  },
+  "homepage": "https://github.com/kovlento/react-cnode#readme",
+  "dependencies": {
+    "react": "^16.4.2",
+    "webpack": "^4.16.5"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.0"
+  }
+}
