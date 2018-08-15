@@ -4,8 +4,11 @@
   "description": "cnode.js community with react\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001bcnode community with react",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config build/webpack.config.js"
+    "build:client": "webpack --config build/webpack.config.client.js",
+    "build:server": "webpack --config build/webpack.config.server.js",
+    "clear": "rimraf dist",
+    "build": "npm run clear && npm run build:client && npm run build:server",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,7 @@
   },
   "homepage": "https://github.com/kovlento/react-cnode#readme",
   "dependencies": {
+    "express": "^4.16.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "webpack": "^4.16.5"
@@ -29,6 +33,7 @@
     "babel-preset-es2015-loose": "^8.0.0",
     "babel-preset-react": "^6.24.1",
     "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.2",
     "webpack-cli": "^3.1.0"
   }
 }
