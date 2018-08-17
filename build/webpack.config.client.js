@@ -1,8 +1,9 @@
 const path = require('path')
+const webpack = require('webpack')
 const HTMLPlugin = require('html-webpack-plugin')
 
 // 	是否是开发环境
-const isDev = process.env.NODE_DEV === 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
 	entry: {
@@ -11,7 +12,7 @@ const config = {
 	output: {
 		filename: '[name].[hash].js', //js文件改变，hash值改变，最大限度使用缓存
 		path: path.join(__dirname, '../dist'),
-		publicPath: '/public' //区分是静态资源还是api等
+		publicPath: '/public/' //区分是静态资源还是api等
 	},
 	module: {
 		rules: [{
@@ -33,19 +34,26 @@ const config = {
 }
 
 if (isDev) {
-	config.devServer = {
-		host: '0.0.0.0', //指向任何地址
-		port: '8888', //端口
-		contentBase: path.join(__dirname, '../dist'), // 编译的静态文件地址
-		// hot: true, // 启动hot module replacement
-		overlay: {
-			errors: true // 编译过程中的错误显示在页面中
-		},
-		publicPath: '/public/',
-		historyApiFallback: {
-			index: '/public/index.html',
-		}
+	config.entry = {
+		app: [
+			'react-hot-loader/patch', //客户端热更新用到
+			path.join(__dirname, '../client/app.js')
+		]
 	}
+	config.devServer = {
+			host: '0.0.0.0', //指向任何地址
+			port: '8888', //端口
+			contentBase: path.join(__dirname, '../dist'), // 编译的静态文件地址
+			hot: true, // 启动hot module replacement
+			overlay: {
+				errors: true // 编译过程中的错误显示在页面中
+			},
+			publicPath: '/public/',
+			historyApiFallback: {
+				index: '/public/index.html',
+			}
+		},
+		config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
 module.exports = config
