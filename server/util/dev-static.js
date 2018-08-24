@@ -9,7 +9,7 @@ const serverConfig = require('../../build/webpack.config.server')
 
 const getTemplate = () => {
 	return new Promise((resolve, reject) => {
-		axios.get('http:localhost:8888/public/index.html')
+		axios.get('http://localhost:8888/public/index.html')
 			.then(res => {
 				resolve(res.data)
 			})
@@ -49,7 +49,8 @@ module.exports = function(app) {
 	app.get('*', function(req, res) {
 		getTemplate().then(template => {
 			const content = ReactDomServer.renderToString(serverBundle)
-			res.send(template.replace('<!-- app -->'), content)
+      const newTemeplate = template.replace('<!-- app -->',content)
+			res.send(template)
 		})
 	})
 }
