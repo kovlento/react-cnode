@@ -27,7 +27,7 @@ serverCompiler.watch({}, (err, stats) => {
 	if (err) throw err
 	stats = stats.toJson()
 	stats.errors.forEach(err => console.error(err))
-	stats.warnings.forEach(warn => console.error(warn))
+	stats.warnings.forEach(warn => console.warn(warn))
 
 	const bundlePath = path.join(
 		serverConfig.output.path,

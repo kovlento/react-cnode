@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { AppContainer } from 'react-hot-loader' // eslint-disable-line
-import App from './App.jsx'
+import App from './views/App'
 
 // ReactDom.hydrate(<App />, document.getElementById('root'))
 
@@ -9,7 +10,9 @@ const root = document.getElementById('root')
 const render = (Component) => {
   ReactDom.hydrate(
     <AppContainer>
-      <Component />
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
     </AppContainer>,
     root,
   )
@@ -19,8 +22,8 @@ render(App)
 
 if (module.hot) {
   // 当热更新的代码存在，把App.jsx重新加载一遍
-  module.hot.accept('./App.jsx', () => {
-    const NextApp = require('./App.jsx').default // eslint-disable-line
+  module.hot.accept('./views/App', () => {
+    const NextApp = require('./views/App').default // eslint-disable-line
     // .default是因为在App里面export default这种写法。
 
     // ReactDom.hydrate(<NextApp />, document.getElementById('root'))

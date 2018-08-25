@@ -5,6 +5,9 @@ module.exports={
       path: path.join(__dirname, '../dist'),
       publicPath: '/public', //区分是静态资源还是api等
     },
+    resolve:{
+      extensions:['.js','.jsx']
+    },
     module: {
     rules: [{
       enforce: "pre",
