@@ -15,8 +15,10 @@
     "react/jsx-filename-extension": [0],
     "jsx-a11y/anchor-is-valid": [0],
     "react/require-default-props": [0],
+    "no-unused-vars":[0],
     "arrow-body-style": [0],
     "no-param-reassign": [0],
+    "no-console":[0],
     "linebreak-style": ["off", "windows"]
   }
 }
