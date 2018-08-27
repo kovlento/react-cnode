@@ -25,7 +25,7 @@ router.post('/login', function(req, res){
       if(err.response) {
         res.join({
           success: false,
-          data: err.response
+          data: err.response.data
         })
       }else{
         next(err)
