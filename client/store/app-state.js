@@ -1,7 +1,7 @@
 import { observable, computed, autorun, action } from 'mobx'
 
 
-export class AppState {
+export default class AppState {
   @observable count = 0
   @observable name = 'kobe'
   @computed get msg() {
@@ -15,7 +15,3 @@ export class AppState {
   }
 }
 
-
-const appState = new AppState()
-
-export default appState
