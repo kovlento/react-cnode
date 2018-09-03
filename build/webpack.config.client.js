@@ -47,6 +47,7 @@ const config = webpackMerge(baseConfig,{
 })
 
 if (isDev) {
+	config.devtool = '#cheap-module-eval-source-map'  // 用于快速调试错误
 	config.entry = {
 		app: [
 			'react-hot-loader/patch', //客户端热更新用到
@@ -54,21 +55,21 @@ if (isDev) {
 		]
 	}
 	config.devServer = {
-			host: '0.0.0.0', //指向任何地址
-			port: '8888', //端口
-			contentBase: path.join(__dirname, '../dist'), // 编译的静态文件地址
-			hot: true, // 启动hot module replacement
-			overlay: {
-				errors: true // 编译过程中的错误显示在页面中
-			},
-			publicPath: '/public/',
-			historyApiFallback: {
-				index: '/public/index.html',
-			},
-      proxy: {
-        '/api': 'http://localhost:3333'
-      }
-		},
+    host: '0.0.0.0', //指向任何地址
+    port: '8888', //端口
+    //contentBase: path.join(__dirname, '../dist'), // 编译的静态文件地址
+    hot: true, // 启动hot module replacement
+    overlay: {
+      errors: true // 编译过程中的错误显示在页面中
+    },
+    publicPath: '/public/',
+    historyApiFallback: {
+      index: '/public/index.html',
+    },
+    proxy: {
+      '/api': 'http://localhost:3333'
+    }
+  },
 		config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
