@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')  //官方提供合并webpack配置
 const baseConfig = require('./webpack.base')
 
@@ -16,6 +17,11 @@ module.exports = webpackMerge(baseConfig,{
 		// publicPath: '/public', //区分是静态资源还是api等
 		libraryTarget: 'commonjs2'
 	},
+	plugins: [
+		new webpack.DefinePlugin({
+			'process.env.API_BASE': '"http://127.0.0.1:3000"'
+		})
+	]
 	// module: {
 	// 	rules: [{
 	// 		enforce: "pre",
