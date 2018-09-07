@@ -7,7 +7,7 @@ const parseUrl = (url, params) => {
     result += `${key}=${params[key]}&`
     return result
   }, '')
-  return `${baseUrl}/api/${url}?${str.substr(0, str.length - 1)}`
+  return `${baseUrl}/api${url}?${str.substr(0, str.length - 1)}`
 }
 
 export const get = (url, params) => {

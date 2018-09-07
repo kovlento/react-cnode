@@ -13,9 +13,12 @@ export const topicPrimaryStyle = (theme) => {
       display: 'inline-block',
       padding: '0 6px',
       color: '#fff',
-      borderRadius: 1,
+      borderRadius: 3,
       marginRight: 10,
       fontSize: '12px',
+    },
+    top: {
+      backgroundColor: theme.palette.accent[500],
     },
   }
 }
