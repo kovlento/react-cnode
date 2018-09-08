@@ -65,11 +65,11 @@ export default class TopicList extends React.Component {
     })
   }
 
-  /** eslint-disable */
-  listItemClick() {
 
+  listItemClick(topic) {
+    this.context.router.history.push(`/detail/${topic.id}`)
   }
-  /** eslint-enable */
+
 
   render() {
     const {
@@ -106,7 +106,7 @@ export default class TopicList extends React.Component {
             topicList.map(topic => (
               <TopicListItem 
                 key={topic.id} 
-                onClick={this.listItemClick} 
+                onClick={() => this.listItemClick(topic)} 
                 topic={topic} 
               />
             ))
