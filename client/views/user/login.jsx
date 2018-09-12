@@ -15,6 +15,7 @@ import loginStyles from './styles/login-style'
   user: stores.appState.user,
   }
   }) @observer
+  
 class UserLogin extends React.Component {
   static contextTypes = {
     router: PropTypes.object,
@@ -36,14 +37,14 @@ class UserLogin extends React.Component {
     }
   }
 
-  handleInput(e) {
+  handleInput(event) {
     this.setState({
-      accessToken: e.target.value.trim(),
+      accesstoken: event.target.value.trim(),
     })
   }
 
   handleLogin() {
-    if (this.state.accesstoken) {
+    if (!this.state.accesstoken) {
       return this.setState({
         helpText: '必须填写',
       })
@@ -56,7 +57,7 @@ class UserLogin extends React.Component {
         this.context.router.history.replace('/user/info')
       })
       .catch((err) => {
-        console.log(err) //eslint-disable-line
+        console.log(err) // eslint-disable-line
       })
   }
 
@@ -88,13 +89,13 @@ class UserLogin extends React.Component {
   }
 }
 
-UserLogin.propTypes = {
-  classes: PropTypes.object.isRequired,
-}
-
 UserLogin.wrappedComponent.propTypes = {
   appState: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
+}
+
+UserLogin.propTypes = {
+  classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(loginStyles)(UserLogin)
