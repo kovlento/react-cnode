@@ -89,13 +89,13 @@ class UserLogin extends React.Component {
   }
 }
 
+UserLogin.propTypes = {
+  classes: PropTypes.object.isRequired,
+}
+
 UserLogin.wrappedComponent.propTypes = {
   appState: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-}
-
-UserLogin.propTypes = {
-  classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(loginStyles)(UserLogin)
